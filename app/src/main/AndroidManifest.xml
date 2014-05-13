@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.focusonemotions.android.baug.gcm.app" >
+    <!-- com.google.android.c2dm.permission.RECEIVE: Register/Receive messages -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- android.permission.INTERNET: Send id to server -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- android.permission.GET_ACCOUNTS: Required by GCM only on version lower < 4.0.4 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- android.permission.WAKE_LOCK: Keep the processor from sleeping when a message is received
+    -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- com.focusonemotions.android.baug.gcm.app.permission.C2D_MESSAGE: prevent other Android
+    applications from registering and receiving the Android application's messages. -->
+    <permission android:name="com.focusonemotions.android.baug.gcm.app.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.focusonemotions.android.baug.gcm.app.permission.C2D_MESSAGE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name="com.focusonemotions.android.bauggcm.app.MainActivity"
+            android:label="@string/app_name"
+            android:background="@drawable/bg"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.focusonemotions.android.bauggcm.app.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.focusonemotions.android.baug.gcm.app" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.focusonemotions.android.bauggcm.app.GcmIntentService" />
+
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

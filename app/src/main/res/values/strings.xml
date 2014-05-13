@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BAUG GCM</string>
+    <string name="hello_baug">Hello BAUG!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_send_server">Send notification to server</string>
+    <string name="server_url">http://dev.focusonemotions.com/talks/2014/05/baug/server.php</string>
+    <string name="property_reg_id">registration_id</string>
+
+</resources>
